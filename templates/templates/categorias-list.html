@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Categorias{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Nome</b></th>
+   </tr>
+   
+  {% for c in categorias %}
+    <tr>
+      <td><a href="/categorias/{{ c.NomeCategoria }}">{{ c.NomeCategoria }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

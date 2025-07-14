@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}SuperMercado database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>About</h2>
+<p>This web application illustrates the use of the SuperMercado
+database. The application is built using 
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Lojas</td>
+  <td>{{ stats.lojas }}</td>
+</tr>
+<tr>
+  <td>Fornecedores</td>
+  <td>{{ stats.fornecedores }}</td>
+</tr>
+<tr>
+  <td>Produtos</td>
+  <td>{{ stats.produtos }}</td>
+</tr>
+<tr>
+  <td>Funcionarios</td>
+  <td>{{ stats.funcionarios }}</td>
+</table>
+
+
+<h2>Sample functionality</h2>
+
+<h3>Lojas</h3>
+<p>
+   <a href="/lojas">List all</a>
+</p>
+<p>Search by Name:
+<form name="msearch" action="javascript:window.open('/lojas/'+document.forms['msearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Law" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Produtos</h3>
+<p>
+   <a href="/produtos">List all</a>
+</p>
+
+<p>Search by Name (prone to <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>!)
+  <form name="asearch" action="javascript:window.open('/produtos/search/'+document.forms['asearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Padas" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Categorias</h3>
+<p>
+   <a href="/categorias">List all</a>
+</p>
+
+<h3>Fornecedores</h3>
+<p>
+   <a href="/fornecedores">List all</a>
+</p>
+<p>Get Fornecedor info:
+<form name="aid" action="javascript:window.open('/fornecedores/'+document.forms['aid'].elements['id'].value,'_self')">
+   Fornecedor Id:<input value="4000" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Funcionarios</h3>
+<p>
+   <a href="/funcionarios">List all</a>
+</p>
+{% endblock %}

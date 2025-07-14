@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %} 
+  <h1>{% block title %} {{ produtos.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %} 
+  <h2>Produto info</h2>
+  <p>
+    <b>Id: {{ produtos.NumId }}
+  </p>
+  <p>
+    <b>Nome: {{ produtos.Nome }}
+  </p>
+  <p>
+    <b>Preco Compra: {{ produtos.Preco_Compra }}
+  </p>
+    <b>Preco Venda: {{ produtos.Preco_Venda }}
+  </p>
+    <b>Validade: {{ produtos.Validade }}
+  </p>
+  <b>Categorias: </b><ul>
+    {% for c in categorias %}      
+      <li><a href="/categorias/{{ c.NomeCategoria }}">{{ c.NomeCategoria }}</a></li>
+    {% endfor %}
+    </ul>
+    <b>Lojas: </b><ul>
+    {% for m in lojas %}      
+      <li><a href="/lojas/{{ m.Nome }}">{{ m.Nome }}</a></li>
+    {% endfor %}
+    </ul>
+    <b>Fornecedores: </b><ul>
+    {% for g in fornecedores %}      
+      <li><a href="/fornecedores/{{ g.NumId }}">{{ g.NomeFornecedor }}</a></li>
+    {% endfor %}
+    </ul>
+  </ul></p>
+{% endblock %}

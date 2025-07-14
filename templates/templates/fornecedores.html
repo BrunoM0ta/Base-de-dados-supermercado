@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} {{ fornecedor.NomeFornecedor }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <h2>Fornecedor info </h2>
+  <p>
+    <b>FornecedorId: {{ fornecedor.NumId }} </b>
+  </p>
+  <p>
+    <b>Nome: {{ fornecedor.NomeFornecedor }} </b>
+  </p>
+  <p>
+    <b>Produtos: </b><ul>
+     {% for a in produtos %}
+     <li><a href="/produtos/{{ a.NumId }}">{{ a.Nome }}</a></li>
+     {% endfor %} 
+    </ul></p>
+{% endblock %}
+

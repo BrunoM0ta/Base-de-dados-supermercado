@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} {{ categoria[0].NomeCategoria }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Categoria info </h2>
+  <p>
+    <b>Produtos: </b><ul>
+    {% for a in produtos %}      
+      <li><a href="/produtos/{{ a.NumId }}">{{ a.Nome }}</a></li>
+    {% endfor %}
+  </ul></p>
+
+{% endblock %}

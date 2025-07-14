@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Lojas{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Nome</b></th>
+   </tr>
+   
+  {% for m in lojas %}
+    <tr>
+      <td><a href="/lojas/{{ m.Nome }}">{{ m.Nome }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

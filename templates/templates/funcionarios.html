@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ funcionarios.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Funcionario info</h2>
+  <p>
+    <b>FuncionarioId: </b>{{ funcionarios.NumId }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ funcionarios.Nome }}
+  </p>
+  <p>
+    <b>DataNasc: </b>{{ funcionarios.DataNasc }}
+  </p>
+  <b>Salario: </b>{{ funcionarios.Salario }}
+  </p>
+  <b>Email: </b>{{ funcionarios.Email }}
+  </p>
+    <b>Contacto: </b>{{ funcionarios.Numero }}
+  </p>
+  {% if 'Nome' in superv %}
+  <p>
+    <b>Supervisor : </b><a href="/funcionarios/{{ funcionarios.Supervisor }}">{{ superv.Nome }}</a>
+  </p>
+  {% endif %}
+
+  {% if supervisees %}
+  <p>
+    <b>Supervisiona : </b><ul>
+  {% for s  in supervisees %}      
+  <li><a href="/funcionarios/{{ s.NumId }}">{{ s.Nome }}</a></li>
+  {% endfor %}
+  </ul>
+  </p>
+  {% endif %}
+
+
+{% endblock %}
+

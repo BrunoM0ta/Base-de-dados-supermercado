@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} {{ loja[0].Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Loja info </h2>
+  <p>
+    <b>Nome: {{ loja[0].Nome }} </b>
+  </p>
+  <p>
+    <b>Rua: {{ loja[0].Rua }} </b>
+  </p>
+  <p>
+    <b>Num: {{ loja[0].Num }} </b>
+  </p>
+  <b>Andar: {{ loja[0].Andar }} </b>
+</p>
+<b>Localidade: {{ loja[0].Localidade }} </b>
+</p>
+<b>CodPostal: {{ loja[0].CodPostal }} </b>
+</p>
+<b>Responsavel(NumIdentificação): {{ loja[0].Responsavel }} </b>
+</p>
+    <b>Fornecedor: </b><ul>
+    {% for g in fornecedores %}      
+      <li><a href="/fornecedores/{{ g.Fornecedor }}">{{ g.NomeFornecedor }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Produtos: </b><ul>
+    {% for a in produtos %}      
+      <li><a href="/produtos/{{ a.NumId }}">{{ a.Nome }}</a></li>
+    {% endfor %}
+  </ul></p>
+  <p>
+    <b>Funcionarios: </b><ul>
+    {% for s in funcionarios %}      
+      <li><a href="/funcionarios/{{ s.Funcionario }}">{{ s.Nome }}</a></li>
+    {% endfor %}
+  </ul></p>
+
+  
+{% endblock %}
